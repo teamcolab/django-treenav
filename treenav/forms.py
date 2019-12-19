@@ -1,3 +1,5 @@
+from builtins import str
+from builtins import object
 from django import forms
 from django.urls import reverse, NoReverseMatch
 from django.core.exceptions import ObjectDoesNotExist
@@ -54,14 +56,14 @@ class MenuItemFormMixin(object):
 
 class MenuItemForm(MenuItemFormMixin, MPTTAdminForm):
 
-    class Meta:
+    class Meta(object):
         model = MenuItem
         fields = "__all__"
 
 
 class MenuItemInlineForm(MenuItemFormMixin, forms.ModelForm):
 
-    class Meta:
+    class Meta(object):
         model = MenuItem
         fields = "__all__"
 
@@ -72,6 +74,6 @@ class GenericInlineMenuItemForm(forms.ModelForm):
         required=False
     )
 
-    class Meta:
+    class Meta(object):
         model = MenuItem
         fields = ('parent', 'label', 'slug', 'order', 'is_enabled')

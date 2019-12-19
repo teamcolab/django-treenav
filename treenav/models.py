@@ -1,3 +1,6 @@
+from builtins import str
+from builtins import range
+from builtins import object
 import re
 
 from django.db import models
@@ -130,10 +133,10 @@ class MenuItem(MPTTModel):
 
     objects = MenuItemManager()
 
-    class Meta:
+    class Meta(object):
         ordering = ('lft', 'tree_id')
 
-    class MPTTMeta:
+    class MPTTMeta(object):
         order_insertion_by = ('order', )
 
     def to_tree(self):

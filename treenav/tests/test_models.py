@@ -1,3 +1,4 @@
+from builtins import str
 from django.test import TransactionTestCase
 
 from treenav.models import MenuItem
